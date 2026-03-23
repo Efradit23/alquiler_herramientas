@@ -7,9 +7,13 @@ Base de datos relacional para la gestión de un sistema de alquiler de herramien
 ## Estructura del repositorio
 
 ```
-├── estructura.sql   # DDL: tablas, vistas, funciones, triggers y stored procedures
-├── datos.sql        # DML: inserción de datos de prueba
-└── README.md
+── estructura.sql   # DDL: tablas, vistas, funciones, triggers y stored procedures
+── datos.sql        # DML: inserción de datos de prueba
+── README.md
+── documentacion_sql.pdf
+
+
+
 ```
 
 ---
@@ -20,10 +24,10 @@ Correr los archivos **en este orden**:
 
 ```sql
 -- 1. Primero la estructura
-source estructura.sql
+ estructura.sql
 
 -- 2. Luego los datos
-source datos.sql
+ datos.sql
 
 ---
 
