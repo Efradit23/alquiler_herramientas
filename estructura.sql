@@ -111,6 +111,55 @@ CREATE TABLE resenia ( -- la palabra reseña esta escrita "resenia" aproposito p
 		ON UPDATE CASCADE
         ON DELETE CASCADE );
 
+-- esta tabla se agregó para la entrega de proyecto final
+-- TABLA DE HECHOS: fact_alquiler
+
+DROP TABLE IF EXISTS fact_alquiler;
+
+CREATE TABLE fact_alquiler (
+    id_fact INT AUTO_INCREMENT PRIMARY KEY,
+    id_alquiler INT NOT NULL,
+    id_cliente INT NOT NULL,
+    id_herramienta INT NOT NULL,
+    id_categoria INT NOT NULL,
+    id_sucursal INT NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL,
+    precio_por_dia DECIMAL(10,2) NOT NULL,
+    estado_alquiler VARCHAR(20) NOT NULL,
+
+    -- relaciones
+    FOREIGN KEY (id_alquiler) REFERENCES alquiler(id_alquiler),
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_herramienta) REFERENCES herramientas(id_herramienta),
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria),
+    FOREIGN KEY (id_sucursal) REFERENCES sucursal(id_sucursal)
+);
+
+-- INDICES PARA PERFORMANCE (BI)
+
+-- filtros y segmentación
+CREATE INDEX idx_fact_cliente 
+ON fact_alquiler(id_cliente);
+
+CREATE INDEX idx_fact_fecha 
+ON fact_alquiler(fecha_inicio);
+
+-- análisis principal
+CREATE INDEX idx_fact_herramienta 
+ON fact_alquiler(id_herramienta);
+
+CREATE INDEX idx_fact_categoria 
+ON fact_alquiler(id_categoria);
+
+CREATE INDEX idx_fact_sucursal 
+ON fact_alquiler(id_sucursal);
+
+-- índice compuesto
+CREATE INDEX idx_fact_fecha_herramienta 
+ON fact_alquiler(fecha_inicio, id_herramienta);
+
+
 -- ============================================================
 -- VISTAS
 
@@ -281,20 +330,41 @@ BEFORE INSERT ON detalle_alquiler
 FOR EACH ROW
 BEGIN
     DECLARE estado_actual VARCHAR(20);
+    DECLARE fecha_inicio_nueva DATE;
+    DECLARE fecha_fin_nueva DATE;
 
+    -- Obtener estado del inventario
     SELECT estado INTO estado_actual
     FROM inventario
     WHERE id_inventario = NEW.id_inventario;
 
-    IF estado_actual = 'alquilado' THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La herramienta ya se encuentra alquilada.';
-    ELSEIF estado_actual = 'mantenimiento' THEN
+    -- Validar mantenimiento
+    IF estado_actual = 'mantenimiento' THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'La herramienta está en mantenimiento y no puede alquilarse.';
     END IF;
+
+    -- Obtener fechas del alquiler nuevo
+    SELECT fecha_inicio_alquiler, fecha_finaliza_alquiler
+    INTO fecha_inicio_nueva, fecha_fin_nueva
+    FROM alquiler
+    WHERE id_alquiler = NEW.id_alquiler;
+
+    -- Validar superposición de fechas
+    IF EXISTS (
+        SELECT 1
+        FROM detalle_alquiler d
+        JOIN alquiler a ON d.id_alquiler = a.id_alquiler
+        WHERE d.id_inventario = NEW.id_inventario
+        AND (
+            fecha_inicio_nueva <= a.fecha_finaliza_alquiler
+            AND fecha_fin_nueva >= a.fecha_inicio_alquiler
+        )
+    ) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'La herramienta ya está alquilada en ese periodo';
+    END IF;
+
 END $$
 
 DELIMITER ;
-
-
