@@ -11,7 +11,7 @@ Base de datos relacional para la gestión de un sistema de alquiler de herramien
 ├── Documentos/
 │   └── documentacion_sql.pdf      
 ├── SQL/
-│   ├── creacion_objetos.sql       # Estructura, Triggers y Stored Procedures
+│   ├── creacion_objetos.sql       # Estructura (Tablas/Vistas) y Lógica (Funciones/Procedures/Triggers)
 │   └── carga_instancias.sql       # Datos iniciales (Seed) para el sistema
 └── README.md                      # Instrucciones generales del proyecto
 
