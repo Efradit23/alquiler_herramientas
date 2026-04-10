@@ -41,6 +41,7 @@ Para poner en marcha la base de datos, se deben ejecutar los scripts en el sigui
 | `pagos` | Pagos asociados a cada alquiler |
 | `mantenimiento` | Historial de mantenimientos del inventario |
 | `resenia` | Reseñas y calificaciones de los clientes |
+| `fact_alquiler` | Tabla de hechos (BI), creada específicamente para optimizar las consultas de Business Intelligence |
 
 ---
 
