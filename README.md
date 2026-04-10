@@ -7,12 +7,13 @@ Base de datos relacional para la gestión de un sistema de alquiler de herramien
 ## Estructura del repositorio
 
 ```
-── estructura.sql   # DDL: tablas, vistas, funciones, triggers y stored procedures
-── datos.sql        # DML: inserción de datos de prueba
-── README.md
-── documentacion_sql.pdf
-
-
+.
+├── Documentos/
+│   └── documentacion_sql.pdf      
+├── SQL/
+│   ├── creacion_objetos.sql       # Estructura, Triggers y Stored Procedures
+│   └── carga_instancias.sql       # Datos iniciales (Seed) para el sistema
+└── README.md                      # Instrucciones generales del proyecto
 
 ```
 
@@ -20,14 +21,9 @@ Base de datos relacional para la gestión de un sistema de alquiler de herramien
 
 ## Cómo ejecutar
 
-Correr los archivos **en este orden**:
-
-```sql
--- 1. Primero la estructura
- estructura.sql
-
--- 2. Luego los datos
- datos.sql
+Para poner en marcha la base de datos, se deben ejecutar los scripts en el siguiente orden:
+1. `SQL/creacion_objetos.sql`
+2. `SQL/carga_instancias.sql`
 
 ---
 
