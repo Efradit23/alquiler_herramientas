@@ -89,6 +89,11 @@ Para poner en marcha la base de datos, se deben ejecutar los scripts en el sigui
 - 100 clientes
 - 5 sucursales
 - 8 categorías y 32 herramientas
-- 200 unidades de inventario (generadas dinámicamente)
-- 40 alquileres (30 finalizados, 10 activos)
+- 200 unidades de inventario
+- 40 alquileres 
 - 10 pagos y 10 reseñas
+
+---
+### 🔗 Enlace de la presentación
+
+* [Presentación del proyecto](https://querylab-zbhvy85.gamma.site/)
