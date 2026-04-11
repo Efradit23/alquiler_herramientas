@@ -104,7 +104,7 @@ Para poner en marcha la base de datos, se deben ejecutar los scripts en el sigui
 ## Tecnologias utilizadas
 
 * En draw.io se desarrolló el DER.
-* Se utilizó MySQL workbench para desarrollar la base de datos.
+* Se utilizó MySQL Workbench para desarrollar la base de datos.
 * La documentación fue realizada en Microsoft Word.
 * La conversión de formato WORD a PDF fue posible gracias a la web de Ilovepdf.com
 * Para realizar la presentación se utilizó Gamma AI.
