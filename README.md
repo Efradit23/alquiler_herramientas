@@ -1,6 +1,6 @@
 # Alquiler de Herramientas — Base de Datos
 
-Base de datos relacional para la gestión de un sistema de alquiler de herramientas con múltiples sucursales, desarrollada en MySQL.
+Base de datos relacional para la gestión de un sistema de alquiler de herramientas con múltiples sucursales, desarrollada en MySQL por QueryLab.
 
 ---
 
