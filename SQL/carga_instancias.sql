@@ -1,5 +1,5 @@
 -- DATOS DE LA BASE DE DATOS: alquiler_herramientas
--- Ejecutar después de estructura.sql
+-- Ejecutar después de creacion_objetos 
 
 
 USE alquiler_herramientas;
