@@ -106,7 +106,7 @@ Para poner en marcha la base de datos, se deben ejecutar los scripts en el sigui
 * En draw.io se desarrolló el DER.
 * Se utilizó MySQL Workbench para desarrollar la base de datos.
 * La documentación fue realizada en Microsoft Word.
-* La conversión de formato WORD a PDF fue posible gracias a la web de Ilovepdf.com
+* La conversión de formato WORD a PDF fue posible gracias a la web de ilovepdf.com
 * Para realizar la presentación se utilizó Gamma AI.
 * El Dashboard se realizó en Power BI.
 * El README se hizo en Visual Studio Code.
