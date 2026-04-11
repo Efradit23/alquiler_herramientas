@@ -100,3 +100,14 @@ Para poner en marcha la base de datos, se deben ejecutar los scripts en el sigui
 ### 🔗 Enlace de la presentación
 
 * [Presentación del proyecto](https://querylab-zbhvy85.gamma.site/)
+---
+## Tecnologias utilizadas
+
+* En draw.io se desarrolló el DER.
+* Se utilizó MySQL workbench para desarrollar la base de datos.
+* La documentación fue realizada en Microsoft Word.
+* La conversión de formato WORD a PDF fue posible gracias a la web de Ilovepdf.com
+* Para realizar la presentación se utilizó Gamma AI.
+* El Dashboard se realizó en Power BI.
+* El README se hizo en Visual Studio Code.
+* Se utilizó Git Bash para ejercutar comandos de Git.
