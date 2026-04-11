@@ -7,9 +7,11 @@ Base de datos relacional para la gestión de un sistema de alquiler de herramien
 ## Estructura del repositorio
 
 ```
-.
+
+
 ├── Documentos/
-│   └── documentacion_sql.pdf      
+│   ├── documentacion_sql.pdf      # Documentación de la base de datos
+│   └── dashboard_db.pbix          # Dashboard desarrollado en Power BI
 ├── SQL/
 │   ├── creacion_objetos.sql       # Estructura (Tablas/Vistas) y Lógica (Funciones/Procedures/Triggers)
 │   └── carga_instancias.sql       # Datos iniciales (Seed) para el sistema
