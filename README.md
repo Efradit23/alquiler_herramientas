@@ -101,7 +101,7 @@ Para poner en marcha la base de datos, se deben ejecutar los scripts en el sigui
 
 * [Presentación del proyecto](https://querylab-zbhvy85.gamma.site/)
 ---
-## Tecnologías utilizadas
+## Herramientas y Tecnologías utilizadas
 
 * En draw.io se desarrolló el DER.
 * Se utilizó MySQL Workbench para desarrollar la base de datos.
